@@ -2,8 +2,10 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./page.scss";
 import { useEffect } from "react";
-import MainCard from "./shared/main-card/MainCard";
+import ContactInfoCard from "./contact-info-card";
+import Home from "./home";
 
+//https://codewithsadee.github.io/vcard-personal-portfolio/
 export default function Page() {
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap");
@@ -14,12 +16,10 @@ export default function Page() {
       <div className="container py-5 mx-auto">
         <div className="row">
           <div className="col-3">
-            <MainCard>
-              <button>Click Me</button>
-            </MainCard>
+            <ContactInfoCard />
           </div>
           <div className="col-9">
-            <MainCard />
+            <Home />
           </div>
         </div>
       </div>
