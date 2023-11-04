@@ -1,0 +1,28 @@
+.contact-list-item-container {
+  height: 40px;
+}
+.contact-icon {
+  color: var(--orange-yellow-crayola);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-info-title {
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.contact-info-link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--white-2);
+  font-size: var(--fs-7);
+  --fs-7: 14px;
+}
+a.contact-info-link {
+  text-decoration: none;
+}
