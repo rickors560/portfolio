@@ -1,0 +1,15 @@
+.main-title {
+  position: relative;
+  padding-bottom: 7px;
+}
+
+.main-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--text-gradient-yellow);
+  border-radius: 5px;
+}
