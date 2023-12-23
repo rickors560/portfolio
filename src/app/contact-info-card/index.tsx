@@ -23,7 +23,9 @@ function ContactInfoCard() {
           height={100}
         />
       </div>
-      <p className="h3 mt-2">Ritik Sharma</p>
+      <p className="h3 mt-2">
+        <b>Ritik Sharma</b>
+      </p>
       <div className="title-container mx-5 px-1 d-flex justify-content-center align-items-center">
         <p className="m-auto">Full Stack Developer</p>
       </div>
