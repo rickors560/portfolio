@@ -17,7 +17,7 @@ function ContactInfoCard() {
     <MainCard className="contact-container text-center">
       <div className="row">
         <AvatarTile
-          src="/assets/avatar.png"
+          src="./assets/avatar.png"
           alt="Ritik Sharma"
           width={100}
           height={100}
