@@ -12,7 +12,7 @@ import Footer from "@/components/features/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#0a0a0f] text-slate-200 overflow-x-hidden">
+    <main className="relative min-h-screen text-slate-200 overflow-x-hidden">
       {/* Global Floating Particles */}
       <FloatingParticles count={20} />
       

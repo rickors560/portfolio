@@ -23,34 +23,30 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative py-16 border-t border-white/5 overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-violet-950/10 to-transparent pointer-events-none" />
-      
+    <footer className="relative py-12 border-t border-zinc-900 overflow-hidden">
       <div className="container relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <a href="#" className="inline-block">
-              <span className="text-3xl font-bold">
-                <span className="text-gradient">Ritik</span>
-                <span className="text-white"> Sharma</span>
+            <a href="#" className="inline-block group">
+              <span className="text-2xl font-bold tracking-tight text-white group-hover:text-zinc-300 transition-colors">
+                Ritik Sharma<span className="text-blue-500">.</span>
               </span>
             </a>
-            <p className="text-slate-400 max-w-xs">
-              Module Lead – Backend & AI, crafting scalable systems and production-grade AI solutions.
+            <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
+              Software Engineer – Backend & AI, crafting scalable systems and production-grade AI solutions.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-zinc-100 font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
             <nav className="flex flex-wrap gap-x-6 gap-y-2">
               {footerLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-slate-400 hover:text-violet-400 transition-colors text-sm"
+                  className="text-zinc-500 hover:text-zinc-300 transition-colors text-sm"
                 >
                   {link.label}
                 </a>
@@ -60,7 +56,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Connect</h4>
+            <h4 className="text-zinc-100 font-semibold mb-4 text-sm uppercase tracking-wider">Connect</h4>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <motion.a
@@ -70,10 +66,10 @@ export default function Footer() {
                   rel={social.label !== "Email" ? "noopener noreferrer" : undefined}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-violet-500/20 hover:border-violet-500/50 transition-all"
+                  className="p-2.5 rounded-full bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700 transition-all group"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5 text-slate-400 hover:text-violet-400" />
+                  <social.icon className="w-4 h-4 text-zinc-400 group-hover:text-zinc-200" />
                 </motion.a>
               ))}
             </div>
@@ -81,13 +77,13 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+        <div className="h-px bg-zinc-900 mb-8" />
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-sm flex items-center gap-2">
+          <p className="text-zinc-600 text-sm flex items-center gap-2">
             © {new Date().getFullYear()} Ritik Sharma. Made with
-            <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
+            <Heart className="w-3.5 h-3.5 text-zinc-600 fill-zinc-900" />
             in India
           </p>
 
@@ -96,10 +92,10 @@ export default function Footer() {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-violet-500/20 hover:border-violet-500/50 transition-all group"
+            className="p-2.5 rounded-full bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700 transition-all group"
             aria-label="Scroll to top"
           >
-            <ArrowUp className="w-5 h-5 text-slate-400 group-hover:text-violet-400 transition-colors" />
+            <ArrowUp className="w-4 h-4 text-zinc-400 group-hover:text-zinc-200 transition-colors" />
           </motion.button>
         </div>
       </div>
