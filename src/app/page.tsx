@@ -1,15 +1,28 @@
 "use client";
 
+import { FloatingParticles } from "@/components/ui";
+import Navbar from "@/components/features/Navbar";
 import Hero from "@/components/features/Hero";
 import About from "@/components/features/About";
 import Experience from "@/components/features/Experience";
 import Skills from "@/components/features/Skills";
 import Projects from "@/components/features/Projects";
 import Contact from "@/components/features/Contact";
+import Footer from "@/components/features/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30">
+    <main className="relative min-h-screen bg-[#0a0a0f] text-slate-200 overflow-x-hidden">
+      {/* Global Floating Particles */}
+      <FloatingParticles count={20} />
+      
+      {/* Noise Overlay for texture */}
+      <div className="noise-overlay" />
+      
+      {/* Navigation */}
+      <Navbar />
+      
+      {/* Sections */}
       <Hero />
       <About />
       <Skills />
@@ -17,9 +30,8 @@ export default function Home() {
       <Projects />
       <Contact />
       
-      <footer className="py-8 text-center text-slate-600 border-t border-slate-900">
-        <p>&copy; {new Date().getFullYear()} Ritik Sharma. All rights reserved.</p>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </main>
   );
 }
