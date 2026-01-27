@@ -1,32 +1,25 @@
 "use client";
-import "bootstrap/dist/css/bootstrap.css";
-import "./page.scss";
-import { useEffect } from "react";
-import ContactInfoCard from "./contact-info-card";
-import Home from "./home";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
 
-config.autoAddCss = false;
+import Hero from "@/components/features/Hero";
+import About from "@/components/features/About";
+import Experience from "@/components/features/Experience";
+import Skills from "@/components/features/Skills";
+import Projects from "@/components/features/Projects";
+import Contact from "@/components/features/Contact";
 
-//https://codewithsadee.github.io/vcard-personal-portfolio/
-export default function Page() {
-  useEffect(() => {
-    require("bootstrap/dist/js/bootstrap");
-  }, []);
-
+export default function Home() {
   return (
-    <div className="main_body main_theme_color">
-      <div className="container py-5 mx-auto">
-        <div className="row">
-          <div className="col-3">
-            <ContactInfoCard />
-          </div>
-          <div className="col-9">
-            <Home />
-          </div>
-        </div>
-      </div>
-    </div>
+    <main className="min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30">
+      <Hero />
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Contact />
+      
+      <footer className="py-8 text-center text-slate-600 border-t border-slate-900">
+        <p>&copy; {new Date().getFullYear()} Ritik Sharma. All rights reserved.</p>
+      </footer>
+    </main>
   );
 }
