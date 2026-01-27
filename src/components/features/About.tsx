@@ -3,13 +3,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Zap, TrendingUp, Users, Award } from "lucide-react";
-import { GlowCard, SectionHeader, LiquidBlob } from "@/components/ui";
+import { SectionHeader, GlowCard } from "@/components/ui";
 
 const stats = [
-  { icon: Zap, value: "30%", label: "Cloud Cost Reduction", color: "from-amber-500 to-orange-500" },
-  { icon: TrendingUp, value: "80%", label: "Performance Boost", color: "from-emerald-500 to-cyan-500" },
-  { icon: Users, value: "25%", label: "Team Velocity", color: "from-violet-500 to-purple-500" },
-  { icon: Award, value: "5+", label: "Major Awards", color: "from-pink-500 to-rose-500" },
+  { icon: Zap, value: "30%", label: "Cloud Cost Reduction" },
+  { icon: TrendingUp, value: "80%", label: "Performance Boost" },
+  { icon: Users, value: "25%", label: "Team Velocity" },
+  { icon: Award, value: "5+", label: "Major Awards" },
 ];
 
 export default function About() {
@@ -23,17 +23,8 @@ export default function About() {
 
   return (
     <section id="about" ref={containerRef} className="relative section-padding overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-violet-950/10 to-[#0a0a0f]" />
-      <LiquidBlob 
-        className="top-[10%] left-[-20%]" 
-        color1="#8b5cf6" 
-        color2="#06b6d4" 
-        size="500px"
-      />
-      
       <div className="container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Column - Text Content */}
           <div>
             <SectionHeader
@@ -48,16 +39,16 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="space-y-6 text-slate-400 text-lg leading-relaxed"
+              className="space-y-6 text-zinc-400 text-lg leading-relaxed font-light"
             >
               <p>
-                As a <span className="text-white font-semibold">Module Lead – Backend & AI</span> with 
+                As a <span className="text-white font-medium">Software Engineer – Backend & AI</span> with 
                 over 5+ years of experience, I've transformed from a Java/Spring Boot specialist into 
-                a <span className="text-violet-400">Generative AI pioneer</span>.
+                a <span className="text-zinc-200">Generative AI pioneer</span>.
               </p>
               <p>
                 My journey has been marked by continuous learning and delivering 
-                <span className="text-cyan-400"> production-grade LLM applications</span>, 
+                <span className="text-zinc-200"> production-grade LLM applications</span>, 
                 agentic systems, and RAG platforms that create real business impact.
               </p>
               <p>
@@ -80,15 +71,13 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * index, duration: 0.5 }}
               >
-                <GlowCard className="h-full">
-                  <div className="flex flex-col items-center text-center py-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${stat.color} mb-4`}>
-                      <stat.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <span className="text-4xl font-bold text-white mb-2">{stat.value}</span>
-                    <span className="text-sm text-slate-400">{stat.label}</span>
+                <div className="h-full p-6 bg-zinc-900/50 border border-white/5 rounded-2xl flex flex-col items-center text-center hover:border-zinc-700 transition-colors">
+                  <div className="p-3 rounded-xl bg-zinc-800 text-zinc-100 mb-4">
+                    <stat.icon className="w-6 h-6" />
                   </div>
-                </GlowCard>
+                  <span className="text-3xl font-bold text-white mb-1">{stat.value}</span>
+                  <span className="text-sm text-zinc-500">{stat.label}</span>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -100,15 +89,15 @@ export default function About() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-20 overflow-hidden"
+          className="mt-20 overflow-hidden border-t border-zinc-900 pt-10"
         >
-          <div className="flex items-center gap-4 mb-6">
-            <Award className="w-5 h-5 text-amber-400" />
-            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Recognition & Awards</h3>
+          <div className="flex items-center gap-4 mb-8 justify-center lg:justify-start">
+            <Award className="w-5 h-5 text-zinc-500" />
+            <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider">Recognition & Awards</h3>
           </div>
           
           <div className="relative">
-            <div className="flex animate-[scroll_30s_linear_infinite] gap-8 whitespace-nowrap">
+            <div className="flex animate-[scroll_40s_linear_infinite] gap-8 whitespace-nowrap">
               {[
                 "Value Champion Q2 2025",
                 "Annual Excellence Award 2025",
@@ -119,10 +108,10 @@ export default function About() {
               ].map((award, index) => (
                 <div
                   key={index}
-                  className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-zinc-900 border border-zinc-800"
                 >
-                  <span className="text-amber-400">✦</span>
-                  <span className="text-slate-300 font-medium">{award}</span>
+                  <span className="text-zinc-600">✦</span>
+                  <span className="text-zinc-300 font-medium">{award}</span>
                 </div>
               ))}
               {/* Duplicate for seamless loop */}
@@ -136,13 +125,17 @@ export default function About() {
               ].map((award, index) => (
                 <div
                   key={`dup-${index}`}
-                  className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-zinc-900 border border-zinc-800"
                 >
-                  <span className="text-amber-400">✦</span>
-                  <span className="text-slate-300 font-medium">{award}</span>
+                  <span className="text-zinc-600">✦</span>
+                  <span className="text-zinc-300 font-medium">{award}</span>
                 </div>
               ))}
             </div>
+            
+            {/* Fade edges */}
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-zinc-950 to-transparent pointer-events-none" />
           </div>
         </motion.div>
       </div>

@@ -42,10 +42,6 @@ export const metadata: Metadata = {
     creator: "@rickors560", 
     images: ["/og-image.png"],
   },
-  icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
-  },
   robots: {
     index: true,
     follow: true,

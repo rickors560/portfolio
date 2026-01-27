@@ -3,11 +3,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Briefcase, Calendar, MapPin, ChevronRight } from "lucide-react";
-import { SectionHeader, LiquidBlob } from "@/components/ui";
+import { SectionHeader } from "@/components/ui";
 
 interface ExperienceItem {
   role: string;
   period: string;
+  company: string;
+  location: string;
   highlights?: string[];
   isActive?: boolean;
 }
@@ -16,6 +18,8 @@ const experiences: ExperienceItem[] = [
   {
     role: "Module Lead",
     period: "May 2025 – Present",
+    company: "Taazaa Inc.",
+    location: "Noida, U.P.",
     isActive: true,
     highlights: [
       "Leading backend & AI module initiatives",
@@ -26,6 +30,8 @@ const experiences: ExperienceItem[] = [
   {
     role: "Senior Software Engineer",
     period: "May 2023 – Apr 2025",
+    company: "Taazaa Inc.",
+    location: "Noida, U.P.",
     highlights: [
       "Built Code Graph RAG Platform with multi-agent AI",
       "Deployed Agentic AI Platform with AWS Bedrock",
@@ -35,6 +41,8 @@ const experiences: ExperienceItem[] = [
   {
     role: "Software Engineer",
     period: "May 2022 – Apr 2023",
+    company: "Taazaa Inc.",
+    location: "Noida, U.P.",
     highlights: [
       "Architected Fusion using Spring Boot with DDD",
       "Enhanced API performance by up to 80%",
@@ -44,6 +52,8 @@ const experiences: ExperienceItem[] = [
   {
     role: "Associate Software Engineer",
     period: "Jul 2021 – Apr 2022",
+    company: "Taazaa Inc.",
+    location: "Noida, U.P.",
     highlights: [
       "Developed microservices with Spring Boot",
       "Modernized authentication with OAuth 2.0",
@@ -53,6 +63,8 @@ const experiences: ExperienceItem[] = [
   {
     role: "Associate Software Engineer Trainee",
     period: "Mar 2021 – Jun 2021",
+    company: "Taazaa Inc.",
+    location: "Noida, U.P.",
     highlights: [
       "Learned enterprise software development",
       "Built foundational Java/Spring Boot skills",
@@ -87,25 +99,19 @@ function TimelineItem({ exp, index, isLast }: { exp: ExperienceItem; index: numb
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
           className={`relative z-10 w-4 h-4 rounded-full ${
             exp.isActive 
-              ? "bg-gradient-to-r from-violet-500 to-cyan-500" 
-              : "bg-slate-700 border-2 border-slate-600"
+              ? "bg-blue-500 box-shadow-glow" 
+              : "bg-zinc-800 border-2 border-zinc-700"
           }`}
         >
           {exp.isActive && (
-            <span className="absolute inset-0 rounded-full bg-violet-500 animate-ping opacity-50" />
+            <span className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-50" />
           )}
         </motion.div>
       </div>
       
       {/* Timeline Line */}
       {!isLast && (
-        <motion.div
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="absolute left-[7px] top-4 w-[2px] h-full origin-top bg-gradient-to-b from-violet-500/50 to-transparent"
-        />
+        <div className="absolute left-[7px] top-4 w-[2px] h-full bg-zinc-800" />
       )}
       
       {/* Content Card */}
@@ -116,35 +122,28 @@ function TimelineItem({ exp, index, isLast }: { exp: ExperienceItem; index: numb
         transition={{ delay: 0.1 * index }}
         className={`relative p-6 rounded-2xl mb-8 transition-all duration-300 ${
           exp.isActive 
-            ? "bg-gradient-to-br from-violet-500/10 to-cyan-500/5 border border-violet-500/30" 
-            : "bg-white/[0.02] border border-white/5 hover:border-white/10"
+            ? "bg-gradient-to-br from-blue-500/10 to-indigo-500/5 border border-blue-500/20" 
+            : "bg-zinc-900/40 border border-white/5 hover:border-zinc-700"
         }`}
       >
         {exp.isActive && (
-          <span className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+          <span className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
             Current
           </span>
         )}
         
         {/* Role */}
-        <h3 className="text-2xl font-bold text-white mb-2">{exp.role}</h3>
+        <h3 className="text-xl font-bold text-white mb-2">{exp.role}</h3>
         
         {/* Company & Period */}
-        <div className="flex flex-wrap items-center gap-4 mb-4 text-slate-400">
+        <div className="flex flex-wrap items-center gap-4 mb-4 text-zinc-400 text-sm">
           <div className="flex items-center gap-2">
-            <Briefcase className="w-4 h-4 text-violet-400" />
-            <a 
-              href="https://www.taazaa.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-violet-400 hover:text-violet-300 transition-colors font-medium"
-            >
-              Taazaa Inc.
-            </a>
+            <Briefcase className="w-4 h-4 text-blue-500" />
+            <span className="font-medium text-zinc-300">{exp.company}</span>
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4" />
-            <span>Noida, U.P.</span>
+            <span>{exp.location}</span>
           </div>
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4" />
@@ -162,9 +161,9 @@ function TimelineItem({ exp, index, isLast }: { exp: ExperienceItem; index: numb
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.1 }}
-                className="flex items-start gap-2 text-slate-400"
+                className="flex items-start gap-3 text-zinc-400 text-sm leading-relaxed"
               >
-                <ChevronRight className="w-4 h-4 mt-1 text-cyan-400 flex-shrink-0" />
+                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500/50 flex-shrink-0" />
                 <span>{highlight}</span>
               </motion.li>
             ))}
@@ -178,15 +177,6 @@ function TimelineItem({ exp, index, isLast }: { exp: ExperienceItem; index: numb
 export default function Experience() {
   return (
     <section id="experience" className="relative section-padding overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-violet-950/5 to-[#0a0a0f]" />
-      <LiquidBlob 
-        className="top-[20%] left-[-20%]" 
-        color1="#8b5cf6" 
-        color2="#f472b6" 
-        size="500px"
-      />
-      
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto">
           <SectionHeader
@@ -197,7 +187,7 @@ export default function Experience() {
           />
           
           {/* Timeline */}
-          <div className="relative mt-12">
+          <div className="relative mt-8 md:mt-12 pl-4 md:pl-0">
             {experiences.map((exp, index) => (
               <TimelineItem 
                 key={index} 
@@ -214,7 +204,7 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="mt-12 flex justify-center gap-8 flex-wrap"
+            className="mt-16 flex justify-center gap-8 md:gap-16 flex-wrap border-t border-zinc-900 pt-12"
           >
             {[
               { value: "5+", label: "Years Experience" },
@@ -222,8 +212,8 @@ export default function Experience() {
               { value: "1", label: "Amazing Company" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <span className="block text-3xl font-bold text-gradient">{stat.value}</span>
-                <span className="text-sm text-slate-400">{stat.label}</span>
+                <span className="block text-4xl font-bold text-white mb-2">{stat.value}</span>
+                <span className="text-sm text-zinc-500 font-medium uppercase tracking-wider">{stat.label}</span>
               </div>
             ))}
           </motion.div>
