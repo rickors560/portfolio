@@ -1,32 +1,37 @@
 "use client";
-import "bootstrap/dist/css/bootstrap.css";
-import "./page.scss";
-import { useEffect } from "react";
-import ContactInfoCard from "./contact-info-card";
-import Home from "./home";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
 
-config.autoAddCss = false;
+import { FloatingParticles } from "@/components/ui";
+import Navbar from "@/components/features/Navbar";
+import Hero from "@/components/features/Hero";
+import About from "@/components/features/About";
+import Experience from "@/components/features/Experience";
+import Skills from "@/components/features/Skills";
+import Projects from "@/components/features/Projects";
+import Contact from "@/components/features/Contact";
+import Footer from "@/components/features/Footer";
 
-//https://codewithsadee.github.io/vcard-personal-portfolio/
-export default function Page() {
-  useEffect(() => {
-    require("bootstrap/dist/js/bootstrap");
-  }, []);
-
+export default function Home() {
   return (
-    <div className="main_body main_theme_color">
-      <div className="container py-5 mx-auto">
-        <div className="row">
-          <div className="col-3">
-            <ContactInfoCard />
-          </div>
-          <div className="col-9">
-            <Home />
-          </div>
-        </div>
-      </div>
-    </div>
+    <main className="relative min-h-screen bg-[#0a0a0f] text-slate-200 overflow-x-hidden">
+      {/* Global Floating Particles */}
+      <FloatingParticles count={20} />
+      
+      {/* Noise Overlay for texture */}
+      <div className="noise-overlay" />
+      
+      {/* Navigation */}
+      <Navbar />
+      
+      {/* Sections */}
+      <Hero />
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Contact />
+      
+      {/* Footer */}
+      <Footer />
+    </main>
   );
 }
